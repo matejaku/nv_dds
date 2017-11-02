@@ -550,7 +550,7 @@ void CDDSImage::load(istream& is, bool flipImage) {
                ddsh.ddspf.dwGBitMask == 0x0000FF00 &&
                ddsh.ddspf.dwBBitMask == 0x000000FF &&
                ddsh.ddspf.dwABitMask == 0xFF000000) {
-        m_format = GL_BGRA_EXT;
+        m_format = GL_BGRA;
         m_components = 4;
     } else if (ddsh.ddspf.dwRGBBitCount == 32 &&
                ddsh.ddspf.dwRBitMask == 0x000000FF &&
@@ -572,7 +572,7 @@ void CDDSImage::load(istream& is, bool flipImage) {
         m_format = GL_BGR_EXT;
         m_components = 3;
     } else if (ddsh.ddspf.dwRGBBitCount == 8) {
-        m_format = GL_LUMINANCE;
+        m_format = GL_RED;
         m_components = 1;
     } else {
         throw runtime_error("unknow texture format");
